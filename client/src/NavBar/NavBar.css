@@ -1,0 +1,28 @@
+.navbar {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 600;
+    justify-content: space-between;
+    color: rgb(33, 33, 33);
+}
+
+.logo {
+    font-family: 'Righteous', cursive;
+    font-size: 60px;
+    display: block;
+    margin-left: 50px;
+    font-weight: 200;
+}
+
+.other-container {
+    margin-right: 10px;
+    font-size: 15px;
+    display: flex;
+    width: 600px;
+    justify-content: space-around;
+    align-items: center;
+}
+

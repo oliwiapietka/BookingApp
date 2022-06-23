@@ -1,0 +1,29 @@
+.property-type-text-search {
+  display: flex;
+  margin: 40px 0px 0px 150px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: rgb(28, 28, 28);
+}
+
+.property-type-text {
+  font-family: "PT Sans", sans-serif;
+  font-size: 17px;
+  color: rgb(26, 26, 26);
+}
+
+.property-type-container {
+  display: flex;
+  overflow: scroll;
+  margin: 10px 150px;
+  gap: 10px;
+}
+
+.property-img {
+  float: left;
+  width:  280px;
+  height: 280px;
+  object-fit: cover;
+  margin-bottom: 3px;
+}
