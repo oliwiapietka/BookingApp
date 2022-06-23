@@ -6,7 +6,7 @@ import SearchResultPage from './screens/SearchResultPage/SearchResultPage';
 function App() {
   return (
     <div className="App">
-        <SearchResultPage />
+        <HomePage />
     </div>
   );
 }
