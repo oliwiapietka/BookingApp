@@ -47,6 +47,10 @@
   right: 10px;
 }
 
+.search-item-availability-btn:hover {
+    cursor: pointer;
+}
+
 .search-item-price {
   display: flex;
   text-align: center;
