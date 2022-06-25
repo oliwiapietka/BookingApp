@@ -1,0 +1,106 @@
+.result-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.result-page-search-container {
+  margin: 40px 50px;
+  margin-bottom: 0px;
+  background-color: rgb(14, 14, 14);
+  box-shadow: 0px 2px 12px 3px rgba(90, 90, 90, 0.26);
+  color: rgb(236, 236, 236);
+  border-radius: 6px;
+  padding: 5px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 15px;
+  position: sticky;
+  top: 10px;
+  width: 380px;
+  height: 670px;
+  overflow: scroll;
+}
+
+.result-page-search {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.result-page-search-input {
+  height: 30px;
+  width: 140px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  color: rgb(30, 30, 30);
+  font-family: "PT Sans", sans-serif;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+}
+
+.result-page-search-date {
+  height: 30px;
+  width: 140px;
+  font-size: 18px;
+  background-color: white;
+  color: rgb(29, 29, 29);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.result-page-search-date:hover {
+  cursor: pointer;
+}
+
+.result-page-calendar {
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.result-page-search-btn {
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-family: "PT Sans", sans-serif;
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(54, 54, 54);
+}
+
+.result-page-search-btn:hover {
+  cursor: pointer;
+}
+
+.result-page-options-text {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: -5px;
+}
+
+.result-page-options {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-page-options-input {
+  display: flex;
+  width: 60px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+}
+
+.search-result-search-item {
+  display: flex;
+  flex-direction: column;
+}

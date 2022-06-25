@@ -1,0 +1,90 @@
+.search-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  width: 900px;
+  height: 300px;
+  color: rgb(42, 42, 42);
+  background-color: rgba(255, 255, 255, 0.699);
+  box-shadow: 0px 2px 12px 3px rgba(90, 90, 90, 0.26);
+  border-radius: 6px;
+  font-family: "PT Sans", sans-serif;
+  position: relative;
+  font-size: 16px;
+}
+
+.search-item-img {
+  width: 320px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 6px;
+  align-items: center;
+}
+
+.search-item-title {
+  margin-top: -2px;
+  color: rgb(14, 14, 14);
+}
+
+.search-item-availability-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(14, 14, 14);
+  box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.104);
+  width: 175px;
+  height: 45px;
+  color: white;
+  font-family: "PT Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.search-item-price {
+  display: flex;
+  text-align: center;
+  position: absolute;
+  bottom: 60px;
+  right: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(79, 150, 243);
+}
+
+.search-item-details-container {
+  margin-left: 28px;
+  width: 250px;
+  text-align: left;
+}
+
+.search-item-type {
+  font-weight: 600;
+  font-size: 19px;
+  margin-bottom: -6px;
+  margin-top: 25px;
+}
+
+.search-item-location {
+  margin-top: -20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.search-item-details {
+  display: flex;
+  text-align: left;
+  width: 350px;
+  font-size: 17px;
+}
+
+.search-item-description {
+  margin: 10px;
+  text-align: left;
+}

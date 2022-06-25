@@ -5,10 +5,11 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { parseWithOptions } from "date-fns/fp";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [openDate, setOpenDate] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [destination, setDestination] = useState("");
 
   const [date, setDate] = useState([
     {
@@ -36,8 +37,14 @@ const SearchBar = () => {
 
   const onChangeHandler = (e) => {
     e.preventDefault();
-    setSearchQuery(e.target.value);
+    setDestination(e.target.value);
   };
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, details }})
+  }
 
   return (
     <div className="search-bar-container">
@@ -48,7 +55,7 @@ const SearchBar = () => {
           type="text"
           placeholder="Where are you going?"
           onChange={onChangeHandler}
-          value={searchQuery}
+          value={destination}
         />
       </div>
       <div className="search-bar-date">
@@ -66,6 +73,7 @@ const SearchBar = () => {
             onChange={(item) => setDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={date}
+            minDate={new Date()}
             className="date"
           />
         )}
@@ -100,7 +108,7 @@ const SearchBar = () => {
           </div>
         </div> }
       </div>
-      <div className="search-bar-search-btn">
+      <div onClick={handleSearch} className="search-bar-search-btn">
         <ion-icon name="search"></ion-icon>
       </div>
     </div>
