@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import "./HotelDetailsPage.css";
 
 const HotelDetailsPage = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [open, setOpen] = useState(false);
+
   const hotelPhotos = [
     {
       src: "https://www.manooi.com/mn17/wp-content/uploads/vague_kensington_1.jpg",
@@ -18,10 +21,54 @@ const HotelDetailsPage = () => {
       src: "https://i.pinimg.com/originals/92/35/c1/9235c111c19e12712a7f876fb79e2f2b.jpg",
     },
   ];
+
+  const onClickHandler = (index) => {
+    setSlideIndex(index);
+    setOpen(true);
+  };
+
+  const handleSlide = (direction) => {
+    let newSlideIndex;
+
+    if (direction === "left") {
+      newSlideIndex = slideIndex === 0 ? 3 : slideIndex - 1;
+    } else if (direction === "right") {
+      newSlideIndex = slideIndex === 3 ? 0 : slideIndex + 1;
+    }
+
+    setSlideIndex(newSlideIndex);
+  };
+
   return (
     <div>
       <NavBar />
       <div className="hotel-container">
+        {open && (
+          <div className="hotel-slider">
+            <div onClick={() => setOpen(false)} className="hotel-slider-close">
+              <ion-icon name="close-sharp"></ion-icon>
+            </div>
+            <div className="hotel-slider-arrow-left">
+              <ion-icon
+                onClick={() => handleSlide("left")}
+                name="chevron-back-sharp"
+              ></ion-icon>
+            </div>
+            <div className="hotel-slider-wrapper">
+              <img
+                src={hotelPhotos[slideIndex].src}
+                alt=""
+                className="hotel-slider-img"
+              />
+            </div>
+            <div className="hotel-slider-arrow-right">
+              <ion-icon
+                onClick={() => handleSlide("right")}
+                name="chevron-forward-sharp"
+              ></ion-icon>
+            </div>
+          </div>
+        )}
         <h1 className="hotel-title">Mennica Residence Premium</h1>
         <div className="hotel-location-container">
           <ion-icon name="location-sharp"></ion-icon>
@@ -29,10 +76,17 @@ const HotelDetailsPage = () => {
             11 Waliców, Wola, 00-855 Warsaw, Poland
           </p>
         </div>
-        <span className="hotel-text-distance">Excellent location - 1km from center!</span>
+        <span className="hotel-text-distance">
+          Excellent location - 1km from center!
+        </span>
         <div className="hotel-imgs">
-          {hotelPhotos.map((photo) => (
-            <img src={photo.src} alt="" className="hotel-img" />
+          {hotelPhotos.map((photo, index) => (
+            <img
+              onClick={() => onClickHandler(index)}
+              src={photo.src}
+              alt=""
+              className="hotel-img"
+            />
           ))}
         </div>
         <div className="hotel-details">
