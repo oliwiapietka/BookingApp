@@ -6,6 +6,8 @@ import { useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/SearchItem/SearchItem";
+import useFetch from "../../hooks/useFetch";
+import { MoonLoader } from "react-spinners";
 
 const SearchResultPage = () => {
   const location = useLocation();
@@ -13,6 +15,9 @@ const SearchResultPage = () => {
   const [details, setDetails] = useState(location.state.details);
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
+  const { data, loading, error, refetch } = useFetch(
+    `/hotels?city=${destination}`
+  );
   return (
     <div>
       <NavBar />
@@ -87,12 +92,15 @@ const SearchResultPage = () => {
           <button className="result-page-search-btn">Search</button>
         </div>
         <div className="result-page-search-item">
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
+          {loading ? (
+            <MoonLoader />
+          ) : (
+            <>
+              {data.map((item) => (
+                <SearchItem item={item} key={item._id} />
+              ))}
+            </>
+          )}
         </div>
       </div>
       <Footer />

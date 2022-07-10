@@ -10,15 +10,21 @@ const Footer = () => {
       </p>
       <div className="footer-text-container">
         <p className="footer-logo">BOOKING</p>
-        <p className="footer-text">Home</p>
-        <p className="footer-text">About</p>
-        <p className="footer-text">Contact</p>
-        <p className="footer-text">Login</p>
+        <div className="footer-texts">
+          <p className="footer-text">Home</p>
+          <p className="footer-text">About</p>
+          <p className="footer-text">Contact</p>
+          <p className="footer-text">Login</p>
+        </div>
       </div>
       <div className="email-form-container">
-        <ion-icon name="mail-sharp"></ion-icon>
+        <div className="email-mail-icon">
+          <ion-icon name="mail-sharp"></ion-icon>
+        </div>
         <input className="email-form" placeholder="Enter your e-mail" />
-        <ion-icon className="email-send-icon" name="send-sharp"></ion-icon>
+        <div className="email-send-icon">
+          <ion-icon name="send-sharp"></ion-icon>
+        </div>
       </div>
     </div>
   );

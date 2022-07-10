@@ -1,6 +1,8 @@
 import React from "react";
 import "./Explore.css";
 import { v4 as uuidv4 } from "uuid";
+import useFetch from "../../hooks/useFetch";
+import { MoonLoader } from "react-spinners";
 
 const Explore = () => {
   const dataExplore = [
@@ -36,19 +38,25 @@ const Explore = () => {
       },
   ];
 
+  const {data, loading, error} = useFetch("/hotels/countByCity?cities=dubai,japan,new zealand,greece,australia,philippines")
+
   return (
     <div className="explore-container">
       <p className="explore-text">Explore new places</p>
+      {loading ? (<MoonLoader />) : (
+      <>
       <div className="countries-container">
         {dataExplore.map(({ name, src, id }) => {
           return (
             <div className="country-container" key={id}>
               <img className="country-img" src={src} />
               <p className="country-name">{name}</p>
+              <p>{data[data.indexOf(dataExplore)]} properties</p>
             </div>
           );
         })}
       </div>
+      </>)}
     </div>
   );
 };
