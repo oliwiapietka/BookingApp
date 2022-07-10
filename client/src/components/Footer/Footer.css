@@ -121,3 +121,12 @@
     font-size: 35px;
   }
 }
+
+@media (max-width: 500px) {
+  .footer-logo {
+    font-size: 25px;
+  }
+  .footer-text {
+    font-size: 15px;
+  }
+}

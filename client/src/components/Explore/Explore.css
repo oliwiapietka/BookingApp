@@ -26,6 +26,23 @@
   object-fit: cover;
 }
 
+@media (max-width: 1200px) {
+  .country-img {
+    width: 800px;
+    height: 390px;
+  }
+  .explore-text {
+    margin: 0px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1435px) {
+  .country-img {
+    width: 450px;
+  }
+}
+
 .country-name {
   position: absolute;
   top: -20px;

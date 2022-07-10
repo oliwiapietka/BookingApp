@@ -20,6 +20,16 @@
   gap: 10px;
 }
 
+@media (max-width: 800px) {
+  .property-type-container {
+    margin: 15px;
+  }
+  .property-type-text-search {
+    justify-content: center;
+    margin: 0px;
+  }
+}
+
 .property-img {
   float: left;
   width:  280px;

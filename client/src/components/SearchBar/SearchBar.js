@@ -47,6 +47,7 @@ const SearchBar = () => {
   }
 
   return (
+    <div className="search-bar-container-main">
     <div className="search-bar-container">
       <div className="search-bar-input-container">
         <ion-icon name="airplane-sharp"></ion-icon>
@@ -111,6 +112,7 @@ const SearchBar = () => {
       <div onClick={handleSearch} className="search-bar-search-btn">
         <ion-icon name="search"></ion-icon>
       </div>
+    </div>
     </div>
   );
 };
