@@ -1,29 +1,46 @@
 .navbar {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 600;
-    justify-content: space-between;
-    color: rgb(33, 33, 33);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 600;
+  justify-content: space-between;
+  color: rgb(33, 33, 33);
 }
 
 .logo {
-    font-family: 'Righteous', cursive;
-    font-size: 60px;
-    display: block;
-    margin-left: 50px;
-    font-weight: 200;
+  font-family: "Righteous", cursive;
+  font-size: 60px;
+  display: block;
+  margin-left: 50px;
+  font-weight: 200;
+}
+
+@media (max-width: 800px) {
+  .logo {
+    font-size: 50px;
+    margin-left: 0px;
+    justify-content: center;
+  }
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .other-container {
+    margin-top: 25px;
+    margin-right: 0px;
+    justify-content: center;
+    max-width: 400px;
+  }
 }
 
 .other-container {
-    margin-right: 10px;
-    font-size: 15px;
-    display: flex;
-    width: 600px;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 18px;
+  margin-right: 10px;
+  font-size: 15px;
+  display: flex;
+  width: 600px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
 }
-
