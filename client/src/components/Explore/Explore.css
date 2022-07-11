@@ -47,6 +47,12 @@
   }
 }
 
+@media (max-width: 500px) {
+  .country-img {
+    width: 365px;
+  }
+}
+
 .country-name {
   position: absolute;
   top: -20px;
