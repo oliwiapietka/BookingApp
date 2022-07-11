@@ -1,3 +1,7 @@
+.countries-container {
+  margin: 0px 10px;
+}
+
 .explore-text {
   display: flex;
   margin: 40px 0px 0px 150px;
