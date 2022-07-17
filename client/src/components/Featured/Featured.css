@@ -80,11 +80,25 @@
   margin-top: 0px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .featured-properties-text {
     display: flex;
     justify-content: center;
     margin-left: 0px;
+  }
+}
+
+@media (max-width: 1420px) {
+  .featured-property-img {
+    width: 900px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .featured-property-img {
+    width: 580px;
+    height: 310px;
   }
 }
 
