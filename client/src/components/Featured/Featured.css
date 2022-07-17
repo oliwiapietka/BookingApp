@@ -79,3 +79,17 @@
   display: flex;
   margin-top: 0px;
 }
+
+@media (max-width: 1200px) {
+  .featured-properties-text {
+    display: flex;
+    justify-content: center;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-property-img {
+    width: 360px;
+  }
+}
