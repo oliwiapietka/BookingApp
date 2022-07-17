@@ -44,7 +44,7 @@ export const getHotel = async (req, res, next) => {
 
 export const getAllHotels = async (req, res, next) => {
   try {
-    const hotels = await Hotel.find();
+    const hotels = await Hotel.find(req.query).limit(req.query.limit);
     res.status(200).json(hotels);
   } catch (err) {
     next(err);
@@ -52,10 +52,13 @@ export const getAllHotels = async (req, res, next) => {
 };
 
 export const countByCity = async (req, res, next) => {
-  const cities = req.query.cities.split(",")
+  const cities = req.query.cities.split(",");
   try {
-    const list = await Promise.all(cities.map(city => {
-      return Hotel.countDocuments({city:city})}))
+    const list = await Promise.all(
+      cities.map((city) => {
+        return Hotel.countDocuments({ city: city });
+      })
+    );
     res.status(200).json(list);
   } catch (err) {
     next(err);
@@ -64,22 +67,24 @@ export const countByCity = async (req, res, next) => {
 
 export const countByType = async (req, res, next) => {
   try {
-    const hotelCount = await Hotel.countDocuments({type:"hotel"})
-    const apartmentCount = await Hotel.countDocuments({type:"apartment"})
-    const villaCount = await Hotel.countDocuments({type:"villa"})
-    const resortCount = await Hotel.countDocuments({type:"resort"})
-    const vacationHouseCount = await Hotel.countDocuments({type:"vacationhouse"})
-    const cabinCount = await Hotel.countDocuments({type:"cabin"})
-    const glampingCount = await Hotel.countDocuments({type:"glamping"})
+    const hotelCount = await Hotel.countDocuments({ type: "hotel" });
+    const apartmentCount = await Hotel.countDocuments({ type: "apartment" });
+    const villaCount = await Hotel.countDocuments({ type: "villa" });
+    const resortCount = await Hotel.countDocuments({ type: "resort" });
+    const vacationHouseCount = await Hotel.countDocuments({
+      type: "vacationhouse",
+    });
+    const cabinCount = await Hotel.countDocuments({ type: "cabin" });
+    const glampingCount = await Hotel.countDocuments({ type: "glamping" });
 
     res.status(200).json([
-      {type: "hotel", count: hotelCount},
-      {type: "apartment", count: apartmentCount},
-      {type: "villa", count: villaCount},
-      {type: "resort", count: resortCount},
-      {type: "vacationhouse", count: vacationHouseCount},
-      {type: "cabin", count: cabinCount},
-      {type: "glamping", count: glampingCount},
+      { type: "Hotels", count: hotelCount },
+      { type: "Apartments", count: apartmentCount },
+      { type: "Villas", count: villaCount },
+      { type: "Resorts", count: resortCount },
+      { type: "Vacation Houses", count: vacationHouseCount },
+      { type: "Cabins", count: cabinCount },
+      { type: "Glampings", count: glampingCount },
     ]);
   } catch (err) {
     next(err);
