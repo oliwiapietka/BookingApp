@@ -109,7 +109,7 @@ const SearchBar = () => {
           </div>
         </div> }
       </div>
-      <div onClick={() => handleSearch} className="search-bar-search-btn">
+      <div onClick={handleSearch} className="search-bar-search-btn">
         <ion-icon name="search"></ion-icon>
       </div>
     </div>
