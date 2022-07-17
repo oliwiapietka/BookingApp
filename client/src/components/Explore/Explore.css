@@ -66,4 +66,13 @@
 .explore-loading {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
+}
+
+.explore-countries-count {
+  font-family: "PT Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(62, 62, 62);
+  margin-top: 2px;
 }

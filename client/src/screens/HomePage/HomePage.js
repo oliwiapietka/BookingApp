@@ -5,6 +5,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import PropertyType from '../../components/PropertyType/PropertyType';
 import Explore from '../../components/Explore/Explore';
 import Footer from '../../components/Footer/Footer';
+import Featured from '../../components/Featured/Featured';
 
 export default function HomePage() {
     return(
@@ -15,6 +16,7 @@ export default function HomePage() {
                 <SearchBar />
                 <PropertyType />
                 <Explore />
+                <Featured />
                 <Footer />
             </div>
         </div>

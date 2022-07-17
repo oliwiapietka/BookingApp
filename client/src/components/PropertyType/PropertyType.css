@@ -10,7 +10,8 @@
 .property-type-text {
   font-family: "PT Sans", sans-serif;
   font-size: 17px;
-  color: rgb(26, 26, 26);
+  font-weight: 600;
+  color: rgb(62, 62, 62);
 }
 
 .property-type-container {
@@ -40,7 +41,7 @@
 
 .property-type-loading {
   margin: auto;
+  margin-top: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }

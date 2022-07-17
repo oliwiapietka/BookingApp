@@ -1,0 +1,81 @@
+.featured-properties-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.featured-property-img {
+  width: 562px;
+  height: 310px;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.featured-property-container {
+  position: relative;
+}
+
+.featured-properties-rating {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(79, 150, 243);
+  padding: 8px;
+  border-radius: 6px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.featured-properties-rating-text {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  padding: 8px;
+  border-radius: 6px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(79, 150, 243);
+}
+
+.featured-properties-text {
+  display: flex;
+  margin: 40px 0px 10px 150px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: rgb(28, 28, 28);
+}
+
+.featured-property-title {
+  font-family: "PT Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  color: rgb(28, 28, 28);
+  display: flex;
+  margin-top: 4px;
+}
+
+.featured-property-town {
+  font-family: "PT Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(143, 143, 143);
+  display: flex;
+  margin-top: 0px;
+}
+
+.featured-property-price {
+  font-family: "PT Sans", sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: rgb(65, 65, 65);
+  display: flex;
+  margin-top: 0px;
+}
