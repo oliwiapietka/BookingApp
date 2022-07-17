@@ -62,3 +62,8 @@
   font-weight: 600;
   font-family: "PT Sans", sans-serif;
 }
+
+.explore-loading {
+  display: flex;
+  justify-content: center;
+}

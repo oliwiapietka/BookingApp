@@ -37,3 +37,10 @@
   object-fit: cover;
   margin-bottom: 3px;
 }
+
+.property-type-loading {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

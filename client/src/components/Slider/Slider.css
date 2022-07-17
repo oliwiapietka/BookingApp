@@ -64,11 +64,19 @@
   transform: translateY(-60%);
 }
 
+.btn-slide-prev:hover {
+  cursor: pointer;
+}
+
 .btn-slide-next {
   position: absolute;
   top: 50%;
   right: 20px;
   transform: translateY(-60%);
+}
+
+.btn-slide-next:hover {
+  cursor: pointer;
 }
 
 .container-dots {
@@ -85,6 +93,10 @@
   border-radius: 50%;
   margin: 0 10px;
   background: #f2f2f2;
+}
+
+.dot:hover {
+  cursor: pointer;
 }
 
 .dot.active {

@@ -32,31 +32,38 @@ const Explore = () => {
       id: uuidv4(),
     },
     {
-        name: "Philippines",
-        src: "https://i.natgeofe.com/n/04505c35-858b-4e95-a1a7-d72e5418b7fc/steep-karst-cliffs-of-el-nido-in-palawan.jpg",
-        id: uuidv4(),
-      },
+      name: "Philippines",
+      src: "https://i.natgeofe.com/n/04505c35-858b-4e95-a1a7-d72e5418b7fc/steep-karst-cliffs-of-el-nido-in-palawan.jpg",
+      id: uuidv4(),
+    },
   ];
 
-  const {data, loading, error} = useFetch("/hotels/countByCity?cities=dubai,japan,new zealand,greece,australia,philippines")
+  const { data, loading, error } = useFetch(
+    "/hotels/countByCity?cities=dubai,japan,newzealand,greece,australia,philippines"
+  );
 
   return (
     <div className="explore-container">
       <p className="explore-text">Explore new places</p>
-      {loading ? (<MoonLoader />) : (
-      <>
-      <div className="countries-container">
-        {dataExplore.map(({ name, src, id }) => {
-          return (
-            <div className="country-container" key={id}>
-              <img className="country-img" src={src} />
-              <p className="country-name">{name}</p>
-              <p>{data[data.indexOf(dataExplore)]} properties</p>
-            </div>
-          );
-        })}
-      </div>
-      </>)}
+      {loading ? (
+        <div className="explore-loading">
+        <MoonLoader />
+        </div>
+      ) : (
+        <>
+          <div className="countries-container">
+            {dataExplore.map(({ name, src, id }) => {
+              return (
+                <div className="country-container" key={id}>
+                  <img className="country-img" src={src} />
+                  <p className="country-name">{name}</p>
+                  <p>{data[0]} properties</p>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 };
