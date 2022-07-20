@@ -25,7 +25,7 @@ const SearchResultPage = () => {
   const handleClickButton = () => {
     reFetch();
   };
-  
+
   return (
     <div>
       <NavBar />
