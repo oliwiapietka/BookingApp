@@ -13,11 +13,19 @@ const SearchResultPage = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
   const [details, setDetails] = useState(location.state.details);
-  const [date, setDate] = useState(location.state.date);
+  const [dates, setDates] = useState(location.state.dates);
   const [openDate, setOpenDate] = useState(false);
-  const { data, loading, error, refetch } = useFetch(
-    `/hotels?city=${destination}`
+  const [min, setMin] = useState(undefined);
+  const [max, setMax] = useState(undefined);
+
+  const { data, loading, error, reFetch } = useFetch(
+    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
+
+  const handleClickButton = () => {
+    reFetch();
+  };
+  
   return (
     <div>
       <NavBar />
@@ -35,16 +43,16 @@ const SearchResultPage = () => {
           <div onClick={() => setOpenDate(!openDate)}>
             <p className="result-page-search">Check-in date</p>
             <span className="result-page-search-date">
-              {`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
-                date[0].endDate,
+              {`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(
+                dates[0].endDate,
                 "dd/MM/yyyy"
               )}`}
             </span>
             {openDate && (
               <DateRange
                 className="result-page-calendar"
-                onChange={(item) => setDate([item.selection])}
-                ranges={date}
+                onChange={(item) => setDates([item.selection])}
+                ranges={dates}
                 minDate={new Date()}
               />
             )}
@@ -54,11 +62,19 @@ const SearchResultPage = () => {
             <div className="result-page-options-container">
               <div className="result-page-options">
                 <p>Min price (per night)</p>
-                <input className="result-page-options-input" type="number" />
+                <input
+                  className="result-page-options-input"
+                  type="number"
+                  onChange={(e) => setMin(e.target.value)}
+                />
               </div>
               <div className="result-page-options">
                 <p>Max price (per night)</p>
-                <input className="result-page-options-input" type="number" />
+                <input
+                  className="result-page-options-input"
+                  type="number"
+                  onChange={(e) => setMax(e.target.value)}
+                />
               </div>
               <div className="result-page-options">
                 <p>Adults</p>
@@ -89,11 +105,18 @@ const SearchResultPage = () => {
               </div>
             </div>
           </div>
-          <button className="result-page-search-btn">Search</button>
+          <button
+            className="result-page-search-btn"
+            onClick={handleClickButton}
+          >
+            Search
+          </button>
         </div>
         <div className="result-page-search-item">
           {loading ? (
-            <MoonLoader />
+            <div className="search-result-loading">
+              <MoonLoader />
+            </div>
           ) : (
             <>
               {data.map((item) => (

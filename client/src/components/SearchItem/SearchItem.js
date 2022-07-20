@@ -3,10 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./SearchItem.css";
 
 const SearchItem = ({ item }) => {
-  const navigate = useNavigate();
-  // const onClickHandler = () => {
-  //   navigate("/hotel");
-  // };
   return (
     <div className="search-item">
       <img src={item.photos[0]} alt="" className="search-item-img" />
@@ -20,12 +16,18 @@ const SearchItem = ({ item }) => {
         <div className="search-item-details-container">
           <p className="search-item-type">{item.type}</p>
           <p className="search-item-details">{item.description}</p>
+          {item.rating && (
+            <div>
+              <span>Excellent</span>
+              <span>{item.rating}</span>
+            </div>
+          )}
           <span className="search-item-price">${item.cheapestPrice}</span>
           <Link to={`/hotels/${item._id}`}>
-          <div className="search-item-availability-btn">
-            <p>See availability</p>
-            <ion-icon name="chevron-forward-sharp"></ion-icon>
-          </div>
+            <div className="search-item-availability-btn">
+              <p>See availability</p>
+              <ion-icon name="chevron-forward-sharp"></ion-icon>
+            </div>
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./Featured.css";
 import useFetch from "../../hooks/useFetch";
+import { MoonLoader } from "react-spinners";
 
 function Featured() {
   const featuredProperties = [
@@ -43,26 +44,45 @@ function Featured() {
     },
   ];
 
-  const {data, loading, error} = useFetch("/hotels/countByType")
+  const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
+
   return (
     <div>
       <h1 className="featured-properties-text">Featured properties</h1>
-      <div className="featured-properties-container">
-        {featuredProperties.map(
-          ({ title, town, src, id, price, rating, ratingtext }) => {
-            return (
-              <div className="featured-property-container" key={id}>
-                <img className="featured-property-img" src={src} />
-                <h1 className="featured-property-title">{title}</h1>
-                <p className="featured-property-town">{town}</p>
-                <p className="featured-property-price">Starting from ${price}</p>
-                <span className="featured-properties-rating">{rating}</span>
-                <span className="featured-properties-rating-text">{ratingtext}</span>
+      {loading ? (
+        <div className="featured-property-loading">
+          <MoonLoader />
+        </div>
+      ) : (
+        <>
+          <div className="featured-properties-container">
+            {data.map((item) => (
+              <div className="featured-property-container" key={item._id}>
+                <img
+                  className="featured-property-img"
+                  src={item.photos[0]}
+                  alt=""
+                />
+                <h1 className="featured-property-title">{item.name}</h1>
+                <p className="featured-property-town">{item.city}</p>
+                <p className="featured-property-price">
+                  Starting from ${item.cheapestPrice}
+                </p>
+                {item.rating && (
+                  <>
+                    <span className="featured-properties-rating">
+                      {item.rating}
+                    </span>
+                    <span className="featured-properties-rating-text">
+                      Excellent
+                    </span>
+                  </>
+                )}
               </div>
-            );
-          }
-        )}
-      </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
