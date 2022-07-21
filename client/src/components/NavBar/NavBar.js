@@ -28,7 +28,10 @@ const NavBar = () => {
         ) : (
           <>
             <div className="register-button">Register</div>
-            <Link to="/login">
+            <Link
+              to="/login"
+              style={{ textDecoration: "inherit", color: "inherit" }}
+            >
               <div className="navbar-login-button">Login</div>
             </Link>
           </>
