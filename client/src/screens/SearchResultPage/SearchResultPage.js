@@ -31,31 +31,38 @@ const SearchResultPage = () => {
       <NavBar />
       <div className="result-page">
         <div className="result-page-search-container">
-          <h1>Search</h1>
-          <div className="result-page-destination-text">
-            <p className="result-page-search">Destination</p>
-            <input
-              placeholder={destination}
-              className="result-page-search-input"
-              type="text"
-            />
+          <div className="result-page-search-text">
+            <h1 className="search-text">Search</h1>
           </div>
-          <div onClick={() => setOpenDate(!openDate)}>
-            <p className="result-page-search">Check-in date</p>
-            <span className="result-page-search-date">
-              {`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(
-                dates[0].endDate,
-                "dd/MM/yyyy"
-              )}`}
-            </span>
-            {openDate && (
-              <DateRange
-                className="result-page-calendar"
-                onChange={(item) => setDates([item.selection])}
-                ranges={dates}
-                minDate={new Date()}
+          <div className="result-page-destination-and-dates">
+            <div className="result-page-destination-text">
+              <p className="result-page-search">Destination</p>
+              <input
+                placeholder={destination}
+                className="result-page-search-input"
+                type="text"
               />
-            )}
+            </div>
+            <div
+              className="result-page-dates"
+              onClick={() => setOpenDate(!openDate)}
+            >
+              <p className="result-page-search">Check-in date</p>
+              <span className="result-page-search-date">
+                {`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(
+                  dates[0].endDate,
+                  "dd/MM/yyyy"
+                )}`}
+              </span>
+              {openDate && (
+                <DateRange
+                  className="result-page-calendar"
+                  onChange={(item) => setDates([item.selection])}
+                  ranges={dates}
+                  minDate={new Date()}
+                />
+              )}
+            </div>
           </div>
           <div>
             <p className="result-page-options-text">Options</p>

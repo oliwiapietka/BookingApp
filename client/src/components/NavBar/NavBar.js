@@ -16,12 +16,21 @@ const NavBar = () => {
         <div className="logo">BOOKING</div>
       </Link>
       <div className="other-container">
-        <div>Home</div>
+        <Link
+          to="/BookingApp"
+          style={{ textDecoration: "inherit", color: "inherit" }}
+        >
+          <div>Home</div>
+        </Link>
         <div className="contact-button">Contact</div>
-        {user ? user.username : (
+        {user ? (
+          user.username
+        ) : (
           <>
             <div className="register-button">Register</div>
-            <div className="login-button">Login</div>
+            <Link to="/login">
+              <div className="navbar-login-button">Login</div>
+            </Link>
           </>
         )}
       </div>

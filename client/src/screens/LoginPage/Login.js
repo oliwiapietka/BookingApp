@@ -32,7 +32,8 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="login-contianer">
+      <div className="login-container">
+        <h1 className="login-main-text">Enter your username and password!</h1>
         <input
           type="text"
           placeholder="username"
@@ -41,16 +42,21 @@ const Login = () => {
           className="login-input"
         ></input>
         <input
+          securetextentry='true'
           type="password"
           placeholder="password"
           id="password"
           onChange={handleChange}
           className="password-input"
         ></input>
-        <button disabled={loading} onClick={handleClick} className="login-button">
+        <button
+          disabled={loading}
+          onClick={handleClick}
+          className="login-button"
+        >
           Login
         </button>
-        {error && <span>{error.message}</span>}
+        {error && <span className="login-error-message">{error.message}</span>}
       </div>
     </div>
   );

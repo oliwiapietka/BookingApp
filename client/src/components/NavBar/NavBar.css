@@ -44,3 +44,15 @@
   align-items: center;
   font-size: 18px;
 }
+
+.navbar-login-button:hover {
+  cursor: pointer;
+}
+
+.contact-button:hover {
+  cursor: pointer;
+}
+
+.register-button:hover {
+  cursor: pointer;
+}

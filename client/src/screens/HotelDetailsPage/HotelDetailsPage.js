@@ -7,17 +7,18 @@ import { SearchContext } from "../../context/SearchContext";
 import useFetch from "../../hooks/useFetch";
 import "./HotelDetailsPage.css";
 import { AuthContext } from "../../context/AuthContext";
+import Reserve from "../../components/Reserve/Reserve";
 
 const HotelDetailsPage = () => {
   const location = useLocation();
-  const hotelid = location.pathname.split("/")[2];
+  const hotelId = location.pathname.split("/")[2];
   const [slideIndex, setSlideIndex] = useState(0);
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
 
-  const { data, loading, error } = useFetch(`/hotels/find/${hotelid}`);
+  const { data, loading, error } = useFetch(`/hotels/find/${hotelId}`);
   const { user } = useContext(AuthContext);
-
 
   // const hotelPhotos = [
   //   {
@@ -38,14 +39,14 @@ const HotelDetailsPage = () => {
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
-  function dayDifference (date1, date2) {
+  function dayDifference(date1, date2) {
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   }
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate)
-  
+  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+
   const onClickHandler = (index) => {
     setSlideIndex(index);
     setOpen(true);
@@ -64,12 +65,12 @@ const HotelDetailsPage = () => {
   };
 
   const handleClick = () => {
-    if(user) {
-//
+    if (user) {
+      setOpenModal(true);
     } else {
-      navigate("/login")
+      navigate("/login");
     }
-  }
+  };
 
   return (
     <div>
@@ -139,13 +140,19 @@ const HotelDetailsPage = () => {
                 excellent location score of 9.3!
               </span>
               <h2>
-                <b className="hotel-price">${days * data.cheapestPrice * details.room}</b> ({days} nights)
+                <b className="hotel-price">
+                  ${days * data.cheapestPrice * details.room}
+                </b>{" "}
+                ({days} nights)
               </h2>
-              <button onClick={handleClick} className="hotel-btn">Reserve or Book Now!</button>
+              <button onClick={handleClick} className="hotel-btn">
+                Reserve or Book Now!
+              </button>
             </div>
           </div>
         </div>
       )}
+      {openModal && <Reserve setOpen={setOpenModal} />}
       <Footer />
     </div>
   );

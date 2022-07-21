@@ -5,7 +5,7 @@
   width: 900px;
   height: 300px;
   color: rgb(42, 42, 42);
-  background-color: rgba(255, 255, 255, 0.699);
+  background-color: rgb(255, 255, 255);
   box-shadow: 0px 2px 12px 3px rgba(90, 90, 90, 0.26);
   border-radius: 6px;
   font-family: "PT Sans", sans-serif;
@@ -48,7 +48,7 @@
 }
 
 .search-item-availability-btn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .search-item-price {
@@ -91,4 +91,53 @@
 .search-item-description {
   margin: 10px;
   text-align: left;
+}
+
+@media (max-width: 1300px) {
+  .search-item {
+    width: 700px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .search-item {
+    width: 900px;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 915px) {
+  .search-item {
+    width: fit-content;
+    height: fit-content;
+  }
+}
+
+@media (max-width: 720px) {
+  .search-item-img {
+    width: 220px;
+  }
+  .search-item-title {
+    font-size: 25px;
+  }
+  .search-item-location {
+    font-size: 18px;
+    max-width: 190px;
+  }
+  .search-item-details-container {
+    max-width: 120px;
+  }
+  .search-item-details {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 400px) {
+  .search-item {
+    height: 400px;
+  }
+  .search-item-img {
+    height: 400px;
+  }
 }

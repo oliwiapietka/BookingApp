@@ -57,6 +57,11 @@
 .result-page-calendar {
   margin-top: 20px;
   border-radius: 6px;
+  overflow: visible;
+  flex-direction: column;
+  max-width: 400px;
+  overflow: auto;
+  z-index: 200;
 }
 
 .result-page-search-btn {
@@ -111,4 +116,62 @@
   flex-direction: column;
   margin: auto;
   margin-top: 80px;
+}
+
+@media (max-width: 1050px) {
+  .result-page {
+    flex-direction: column;
+  }
+  .result-page-search-container {
+    justify-content: space-around;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 550px;
+    height: fit-content;
+  }
+  .result-page-search-text {
+    display: inline-block;
+  }
+  .result-page-search-btn {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+  }
+  .result-page-dates {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .result-page-destination-and-dates {
+    display: flex;
+    flex-direction: column;
+    margin-top: 61px;
+  }
+  .search-text {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+  }
+  .result-page-options-text {
+    margin-top: 80px;
+  }
+  .result-page-search-date {
+    height: 40px;
+    align-items: center;
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .result-page-search-container {
+    width: fit-content;
+  }
+  .result-page-calendar {
+    width: 200px;
+    overflow: auto;
+  }
 }
